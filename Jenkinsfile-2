@@ -1,1 +1,22 @@
-
+pipeline{
+  agent any
+  stages{
+    stage('hello'){
+      steps{
+        sh 'echo hello wo'
+      }
+      post {
+        success {
+          script {
+            currentBuild.result='FAILURE'
+          }
+        }
+      }
+    }
+  }
+  post {
+    always{
+     echo currentBuild.currentResult
+    }
+  } 
+}

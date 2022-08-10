@@ -1,0 +1,14 @@
+
+pipeline {
+    agent any 
+    environment {
+       EXAMPLE_CREADS=credentials('example-credential-id')
+    }
+    stages {
+        stage('Example') {
+            steps {
+                sh 'printenv'
+            }
+        }
+    }
+}
